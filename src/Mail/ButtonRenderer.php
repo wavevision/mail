@@ -3,6 +3,7 @@
 namespace Wavevision\Mail;
 
 use Nette\SmartObject;
+use Nette\Utils\Html;
 use Wavevision\DIServiceAnnotation\DIService;
 
 /**
@@ -11,13 +12,18 @@ use Wavevision\DIServiceAnnotation\DIService;
 class ButtonRenderer
 {
 
-	use SmartObject;
 	use InjectMailPathManager;
 	use InjectTemplateRenderer;
+	use SmartObject;
 
-	public function render(Button $button): string
+	/**
+	 * @return Html<mixed>
+	 */
+	public function render(Button $button): Html
 	{
-		return $this->templateRenderer->renderToString($this->mailPathManager->button(), ['button' => $button]);
+		return Html::fromHtml(
+			$this->templateRenderer->renderToString($this->mailPathManager->button(), ['button' => $button])
+		);
 	}
 
 }

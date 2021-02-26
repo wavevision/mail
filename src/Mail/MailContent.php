@@ -3,11 +3,16 @@
 namespace Wavevision\Mail;
 
 use Nette\SmartObject;
+use Nette\Utils\Html;
 
 class MailContent
 {
 
 	use SmartObject;
+
+	private string $preheader;
+
+	private Header $header;
 
 	private string $style;
 
@@ -15,16 +20,43 @@ class MailContent
 
 	private string $customStyle;
 
-	private string $preheader;
-
-	private string $header;
-
-	private string $body;
+	/**
+	 * @var Html<mixed>
+	 */
+	private Html $body;
 
 	/**
 	 * @var array<string>
 	 */
 	private array $footerItems;
+
+	public function getPreheader(): string
+	{
+		return $this->preheader;
+	}
+
+	/**
+	 * @return static
+	 */
+	public function setPreheader(string $preheader)
+	{
+		$this->preheader = $preheader;
+		return $this;
+	}
+
+	public function getHeader(): Header
+	{
+		return $this->header;
+	}
+
+	/**
+	 * @return static
+	 */
+	public function setHeader(Header $header)
+	{
+		$this->header = $header;
+		return $this;
+	}
 
 	public function getStyle(): string
 	{
@@ -68,43 +100,19 @@ class MailContent
 		return $this;
 	}
 
-	public function getPreheader(): string
-	{
-		return $this->preheader;
-	}
-
 	/**
-	 * @return static
+	 * @return Html<mixed>
 	 */
-	public function setPreheader(string $preheader)
-	{
-		$this->preheader = $preheader;
-		return $this;
-	}
-
-	public function getHeader(): string
-	{
-		return $this->header;
-	}
-
-	/**
-	 * @return static
-	 */
-	public function setHeader(string $header)
-	{
-		$this->header = $header;
-		return $this;
-	}
-
-	public function getBody(): string
+	public function getBody(): Html
 	{
 		return $this->body;
 	}
 
 	/**
+	 * @param Html<mixed> $body
 	 * @return static
 	 */
-	public function setBody(string $body)
+	public function setBody(Html $body)
 	{
 		$this->body = $body;
 		return $this;

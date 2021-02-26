@@ -21,8 +21,8 @@
 					<table class="email-content" width="100%" cellpadding="0" cellspacing="0" role="presentation">
 						<tr>
 							<td class="email-masthead">
-								<a href="https://example.com" class="f-fallback email-masthead_name">
-									{$mail->getHeader()}
+								<a href="{$mail->getHeader()->getLink()}" class="f-fallback email-masthead_name">
+									{$mail->getHeader()->getContent()}
 								</a>
 							</td>
 						</tr>
@@ -41,7 +41,7 @@
 									<tr>
 										<td class="content-cell">
 											<div class="f-fallback">
-												{$mail->getBody()|noescape}
+												{$mail->getBody()}
 											</div>
 										</td>
 									</tr>

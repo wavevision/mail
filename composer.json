@@ -28,6 +28,7 @@
   },
   "require-dev": {
     "nette/bootstrap": "^3.1",
+    "tracy/tracy": "^2.8",
     "wavevision/coding-standard": "^6.0",
     "wavevision/di-service-annotation": "^4.0"
   }

@@ -1,8 +1,5 @@
-<?php declare(strict_types=1);
-
-
+<?php declare(strict_types = 1);
 require __DIR__ . '/../vendor/autoload.php';
-
 
 use Wavevision\Mail\MailContentRenderer;
 use Wavevision\Mail\MailContentFactory;
@@ -10,11 +7,9 @@ use Nette\Bootstrap\Configurator;
 
 $configurator = new Configurator();
 $configurator
-    ->setTempDirectory(__DIR__ . '/../temp')
-    ->addConfig(__DIR__ . '/config.neon');
-
-
+	->setTempDirectory(__DIR__ . '/../temp')
+	->addConfig(__DIR__ . '/config.neon')
+	->enableDebugger(__DIR__ . '/../log');
 $container = $configurator->createContainer();
-
 echo $container->getByType(MailContentRenderer::class)
-    ->renderToString($container->getByType(MailContentFactory::class)->create());
+	->renderToString($container->getByType(MailContentFactory::class)->create());
