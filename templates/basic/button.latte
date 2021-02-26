@@ -1,0 +1,23 @@
+{varType Wavevision\Mail\Button $button}
+<table
+		class="body-action" align="center" width="100%" cellpadding="0"
+		cellspacing="0" role="presentation"
+>
+	<tr>
+		<td align="center">
+			{* https://litmus.com/blog/a-guide-to-bulletproof-buttons-in-email-design *}
+			<table
+					width="100%" border="0" cellspacing="0" cellpadding="0"
+					role="presentation"
+			>
+				<tr>
+					<td align="center">
+						<a
+								href="{$button->getLink()}" class="f-fallback button" target="_blank"
+						>{$button->getLabel()}</a>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>

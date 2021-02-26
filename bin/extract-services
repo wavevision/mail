@@ -1,0 +1,13 @@
+#!/usr/bin/env php
+<?php declare(strict_types = 1);
+
+use Wavevision\DIServiceAnnotation\Configuration;
+use Wavevision\DIServiceAnnotation\Runner;
+
+require __DIR__ . '/../vendor/autoload.php';
+Runner::run(
+	new Configuration(
+		__DIR__ . '/../src/Mail',
+		__DIR__ . '/../config/services.neon'
+	)
+);

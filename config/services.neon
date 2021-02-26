@@ -1,0 +1,12 @@
+# Generated file, do not modify directly!
+services:
+	- factory: Wavevision\Mail\ButtonRenderer
+	  inject: true
+	- factory: Wavevision\Mail\MailContentFactory
+	  inject: true
+	- factory: Wavevision\Mail\MailContentRenderer
+	  inject: true
+	- factory: Wavevision\Mail\MailPathManager
+	  inject: true
+	- factory: Wavevision\Mail\TemplateRenderer
+	  inject: true

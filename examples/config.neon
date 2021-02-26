@@ -1,0 +1,2 @@
+extensions:
+    wavevisionMail: Wavevision\Mail\DI\Extension
