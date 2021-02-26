@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace Wavevision\Mail;
+namespace Wavevision\Mail\Rendering\Services;
 
 use Latte\Engine;
 use Nette\SmartObject;

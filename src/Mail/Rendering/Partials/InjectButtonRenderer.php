@@ -1,6 +1,6 @@
 <?php declare (strict_types = 1);
 
-namespace Wavevision\Mail;
+namespace Wavevision\Mail\Rendering\Partials;
 
 trait InjectButtonRenderer
 {

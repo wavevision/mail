@@ -1,11 +1,11 @@
 <?php declare(strict_types = 1);
 
-namespace Wavevision\Mail;
+namespace Wavevision\Mail\Rendering;
 
 use Nette\SmartObject;
 use Nette\Utils\Html;
 
-class MailContent
+class MailTemplate
 {
 
 	use SmartObject;
@@ -13,10 +13,6 @@ class MailContent
 	private string $preheader;
 
 	private Header $header;
-
-	private string $style;
-
-	private string $msoStyle;
 
 	private string $customStyle;
 
@@ -55,34 +51,6 @@ class MailContent
 	public function setHeader(Header $header)
 	{
 		$this->header = $header;
-		return $this;
-	}
-
-	public function getStyle(): string
-	{
-		return $this->style;
-	}
-
-	/**
-	 * @return static
-	 */
-	public function setStyle(string $style)
-	{
-		$this->style = $style;
-		return $this;
-	}
-
-	public function getMsoStyle(): string
-	{
-		return $this->msoStyle;
-	}
-
-	/**
-	 * @return static
-	 */
-	public function setMsoStyle(string $msoStyle)
-	{
-		$this->msoStyle = $msoStyle;
 		return $this;
 	}
 

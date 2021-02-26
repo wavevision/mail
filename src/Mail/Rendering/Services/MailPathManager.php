@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace Wavevision\Mail;
+namespace Wavevision\Mail\Rendering\Services;
 
 use Nette\SmartObject;
 use Wavevision\DIServiceAnnotation\DIService;
@@ -20,7 +20,7 @@ class MailPathManager
 
 	public function button(): string
 	{
-		return $this->templatesDirectory() . '/button.latte';
+		return $this->templatesDirectory() . '/partials/button.latte';
 	}
 
 	public function msoStyle(): string
@@ -35,7 +35,7 @@ class MailPathManager
 
 	private function templatesDirectory(): string
 	{
-		return __DIR__ . '/../../templates/basic';
+		return __DIR__ . '/../../../../templates/basic';
 	}
 
 	private function stylesDirectory(): string
