@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7040aa9588c67e7de14c308f12a8b0c8",
+    "content-hash": "e331d343e8ad6b92887e358c7bc00374",
     "packages": [
         {
             "name": "latte/latte",
@@ -228,6 +228,80 @@
                 "source": "https://github.com/nette/finder/tree/v2.5.2"
             },
             "time": "2020-01-03T20:35:40+00:00"
+        },
+        {
+            "name": "nette/mail",
+            "version": "v3.1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/mail.git",
+                "reference": "d5035afcb733ff76b353b8a126a1a6fd560005de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/mail/zipball/d5035afcb733ff76b353b8a126a1a6fd560005de",
+                "reference": "d5035afcb733ff76b353b8a126a1a6fd560005de",
+                "shasum": ""
+            },
+            "require": {
+                "ext-iconv": "*",
+                "nette/utils": "^3.1",
+                "php": ">=7.1 <8.1"
+            },
+            "conflict": {
+                "nette/di": "<3.0-stable"
+            },
+            "require-dev": {
+                "nette/di": "^3.0.0",
+                "nette/tester": "^2.0",
+                "phpstan/phpstan-nette": "^0.12",
+                "tracy/tracy": "^2.4"
+            },
+            "suggest": {
+                "ext-fileinfo": "to detect type of attached files",
+                "ext-openssl": "to use Nette\\Mail\\DkimSigner"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0-only",
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "📧 Nette Mail: handy email creation and transfer library for PHP with both text and MIME-compliant support.",
+            "homepage": "https://nette.org",
+            "keywords": [
+                "mail",
+                "mailer",
+                "mime",
+                "nette",
+                "smtp"
+            ],
+            "support": {
+                "issues": "https://github.com/nette/mail/issues",
+                "source": "https://github.com/nette/mail/tree/v3.1.6"
+            },
+            "time": "2021-02-24T20:29:52+00:00"
         },
         {
             "name": "nette/neon",
@@ -1049,6 +1123,52 @@
                 }
             ],
             "time": "2021-02-25T16:44:57+00:00"
+        },
+        {
+            "name": "ryby/mail",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Ryby/Mail.git",
+                "reference": "52756733f609f85a9f5fd9be298fd1193de1ad89"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Ryby/Mail/zipball/52756733f609f85a9f5fd9be298fd1193de1ad89",
+                "reference": "52756733f609f85a9f5fd9be298fd1193de1ad89",
+                "shasum": ""
+            },
+            "require": {
+                "nette/di": "^3.0",
+                "nette/mail": "^3.1",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "^1.6",
+                "nette/tester": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ryby\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Jakub Filla",
+                    "email": "jakub.filla@wavevision.cz"
+                },
+                {
+                    "name": "Tomáš Vojtášek",
+                    "email": "vojtasek.tomas@seznam.cz"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/Ryby/Mail/issues",
+                "source": "https://github.com/Ryby/Mail/tree/2.0.1"
+            },
+            "time": "2020-04-08T08:52:18+00:00"
         },
         {
             "name": "slevomat/coding-standard",

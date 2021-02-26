@@ -1,0 +1,7 @@
+extensions:
+    wavevisionMail: Wavevision\Mail\DI\Extension
+    fileMailter: Ryby\Mail\DI\FileMailerExtension
+
+includes:
+   - services.neon
+

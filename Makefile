@@ -1,6 +1,7 @@
 vendor_bin=vendor/bin
 bin=bin
 src=src
+examples=examples
 dirs=$(src) $(examples)
 phpcs_params:=--standard=codesniffer-ruleset.xml --extensions=php,phpt --ignore=$(temp),log $(dirs)
 

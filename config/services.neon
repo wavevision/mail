@@ -1,7 +1,5 @@
 # Generated file, do not modify directly!
 services:
-	- factory: Wavevision\Mail\MailContentFactory
-	  inject: true
 	- factory: Wavevision\Mail\Rendering\Partials\ButtonRenderer
 	  inject: true
 	- factory: Wavevision\Mail\Rendering\Services\MailPathManager
@@ -9,4 +7,6 @@ services:
 	- factory: Wavevision\Mail\Rendering\Services\MailTemplateRenderer
 	  inject: true
 	- factory: Wavevision\Mail\Rendering\Services\TemplateRenderer
+	  inject: true
+	- factory: Wavevision\Mail\Sending\SendMail
 	  inject: true

@@ -1,0 +1,8 @@
+# Generated file, do not modify directly!
+services:
+	- factory: Wavevision\MailExamples\MailTemplateFactory
+	  inject: true
+	- factory: Wavevision\MailExamples\Render
+	  inject: true
+	- factory: Wavevision\MailExamples\Send
+	  inject: true

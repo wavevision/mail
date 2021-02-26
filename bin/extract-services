@@ -9,5 +9,9 @@ Runner::run(
 	new Configuration(
 		__DIR__ . '/../src/Mail',
 		__DIR__ . '/../config/services.neon'
+	),
+	new Configuration(
+		__DIR__ . '/../examples/src/MailExamples',
+		__DIR__ . '/../examples/config/services.neon'
 	)
 );

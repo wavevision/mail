@@ -20,14 +20,21 @@
       "Wavevision\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Wavevision\\": "examples/src"
+    }
+  },
   "require": {
     "php": ">=7.4",
     "latte/latte": "^2.10",
     "nette/di": "^3.0",
+    "nette/mail": "^3.1",
     "nette/utils": "^3.2"
   },
   "require-dev": {
     "nette/bootstrap": "^3.1",
+    "ryby/mail": "^2.0",
     "tracy/tracy": "^2.8",
     "wavevision/coding-standard": "^6.0",
     "wavevision/di-service-annotation": "^4.0"
