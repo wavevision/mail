@@ -24,8 +24,7 @@ class Send
 				->setSubject('test')
 				->setFrom('noreply@wavevision.com')
 				->addTo('jakub.filla@wavevision.com'),
-			$this->mailTemplateFactory->create(),
-			__DIR__ . '/../../resources'
+			$this->mailTemplateFactory->create()
 		);
 	}
 

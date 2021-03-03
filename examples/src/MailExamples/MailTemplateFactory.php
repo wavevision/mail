@@ -43,7 +43,8 @@ class MailTemplateFactory
 					)
 			)
 			->setPreheader('Lorem ipsum dolor sit amet.')
-			->setFooterItems(['© 2019 Wavevision', '1234 Street Rd.']);
+			->setFooterItems(['© 2019 Wavevision', '1234 Street Rd.'])
+			->setInlineResourcesPath(__DIR__ . '/../../resources');
 	}
 
 }

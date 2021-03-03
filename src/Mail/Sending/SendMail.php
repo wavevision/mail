@@ -25,9 +25,12 @@ class SendMail
 		$this->mailer = $mailer;
 	}
 
-	public function process(Message $message, MailTemplate $template, ?string $basePath = null): void
+	public function process(Message $message, MailTemplate $template): void
 	{
-		$message->setHtmlBody($this->mailTemplateRenderer->renderToString($template), $basePath);
+		$message->setHtmlBody(
+			$this->mailTemplateRenderer->renderToString($template),
+			$template->getInlineResourcesPath()
+		);
 		$this->mailer->send($message);
 	}
 

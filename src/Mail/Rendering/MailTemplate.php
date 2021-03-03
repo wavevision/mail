@@ -26,6 +26,8 @@ class MailTemplate
 	 */
 	private array $footerItems;
 
+	private ?string $inlineResourcesPath = null;
+
 	public function getPreheader(): string
 	{
 		return $this->preheader;
@@ -101,6 +103,20 @@ class MailTemplate
 	public function setFooterItems(array $footerItems)
 	{
 		$this->footerItems = $footerItems;
+		return $this;
+	}
+
+	public function getInlineResourcesPath(): ?string
+	{
+		return $this->inlineResourcesPath;
+	}
+
+	/**
+	 * @return static
+	 */
+	public function setInlineResourcesPath(?string $inlineResourcesPath)
+	{
+		$this->inlineResourcesPath = $inlineResourcesPath;
 		return $this;
 	}
 
