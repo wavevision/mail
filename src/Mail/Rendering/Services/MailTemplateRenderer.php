@@ -20,13 +20,14 @@ class MailTemplateRenderer
 
 	public function renderToString(MailTemplate $template): string
 	{
+		$customStyle = $template->getCustomStyle();
 		return $this->templateRenderer->renderToString(
 			$this->mailPathManager->template(),
 			[
 				'mail' => $template,
 				'style' => $this->attributes($this->styleFromFile($this->mailPathManager->style())),
 				'msoStyle' => $this->styleFromFile($this->mailPathManager->msoStyle()),
-				'customStyle' => $this->attributes($this->style($template->getCustomStyle())),
+				'customStyle' => $customStyle ? $this->attributes($this->style($customStyle)) : null,
 			]
 		);
 	}

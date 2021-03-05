@@ -10,11 +10,11 @@ class MailTemplate
 
 	use SmartObject;
 
-	private string $preheader;
+	private ?string $preheader = null;
 
 	private Header $header;
 
-	private string $customStyle;
+	private ?string $customStyle = null;
 
 	/**
 	 * @var Html<mixed>
@@ -24,11 +24,11 @@ class MailTemplate
 	/**
 	 * @var array<string>
 	 */
-	private array $footerItems;
+	private array $footerItems = [];
 
 	private ?string $inlineResourcesPath = null;
 
-	public function getPreheader(): string
+	public function getPreheader(): ?string
 	{
 		return $this->preheader;
 	}
@@ -36,7 +36,7 @@ class MailTemplate
 	/**
 	 * @return static
 	 */
-	public function setPreheader(string $preheader)
+	public function setPreheader(?string $preheader)
 	{
 		$this->preheader = $preheader;
 		return $this;
@@ -56,7 +56,7 @@ class MailTemplate
 		return $this;
 	}
 
-	public function getCustomStyle(): string
+	public function getCustomStyle(): ?string
 	{
 		return $this->customStyle;
 	}
@@ -64,7 +64,7 @@ class MailTemplate
 	/**
 	 * @return static
 	 */
-	public function setCustomStyle(string $customStyle)
+	public function setCustomStyle(?string $customStyle)
 	{
 		$this->customStyle = $customStyle;
 		return $this;
