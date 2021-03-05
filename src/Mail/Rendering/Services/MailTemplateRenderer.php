@@ -4,6 +4,7 @@ namespace Wavevision\Mail\Rendering\Services;
 
 use Nette\SmartObject;
 use Nette\Utils\FileSystem;
+use Nette\Utils\Html;
 use Wavevision\DIServiceAnnotation\DIService;
 use Wavevision\Mail\Rendering\MailTemplate;
 
@@ -23,15 +24,42 @@ class MailTemplateRenderer
 			$this->mailPathManager->template(),
 			[
 				'mail' => $template,
-				'style' => $this->style($this->mailPathManager->style()),
-				'msoStyle' => $this->style($this->mailPathManager->msoStyle()),
+				'style' => $this->attributes($this->styleFromFile($this->mailPathManager->style())),
+				'msoStyle' => $this->styleFromFile($this->mailPathManager->msoStyle()),
+				'customStyle' => $this->attributes($this->style($template->getCustomStyle())),
 			]
 		);
 	}
 
-	private function style(string $filePath): string
+	/**
+	 * @return Html<mixed>
+	 */
+	private function styleFromFile(string $filePath): Html
 	{
-		return FileSystem::read($filePath);
+		return $this->style(FileSystem::read($filePath));
+	}
+
+	/**
+	 * @return Html<mixed>
+	 */
+	private function style(string $content): Html
+	{
+		return Html::el('style')->setAttribute('type', 'text/css')
+			->addHtml($content);
+	}
+
+	/**
+	 * @param Html<mixed> $style
+	 * @return Html<mixed>
+	 */
+	private function attributes(Html $style): Html
+	{
+		return $style->addAttributes(
+			[
+				'rel' => 'stylesheet',
+				'media' => 'all',
+			]
+		);
 	}
 
 }

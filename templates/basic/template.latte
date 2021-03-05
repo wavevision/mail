@@ -1,6 +1,7 @@
 {varType Wavevision\Mail\Rendering\MailTemplate $mail}
-{varType string $style}
-{varType string $msoStyle}
+{varType Nette\Utils\Html $style}
+{varType Nette\Utils\Html $msoStyle}
+{varType Nette\Utils\Html $customStyle}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -9,11 +10,11 @@
 		<meta name="x-apple-disable-message-reformatting" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title></title>
-		<style type="text/css" rel="stylesheet" media="all">{$style|noescape}</style>
+		{$style}
 		<!--[if mso]>
-    <style type="text/css">{$msoStyle|noescape}</style>
-    <![endif]-->
-		<style type="text/css" rel="stylesheet" media="all">{$mail->getCustomStyle()|noescape}</style>
+    	{$msoStyle}
+    	<![endif]-->
+		{$customStyle}
 	</head>
 	<body>
 		<span class="preheader">{$mail->getPreheader()}</span>
