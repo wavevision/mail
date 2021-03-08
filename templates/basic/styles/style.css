@@ -246,3 +246,15 @@ p.sub {
   }
 }
 
+.attributes {
+  margin: 0 0 21px;
+}
+
+.attributes_content {
+  background-color: #F4F4F7;
+  padding: 16px;
+}
+
+.attributes_item {
+  padding: 0;
+}

@@ -4,6 +4,7 @@ namespace Wavevision\Mail\Rendering\Services;
 
 use Nette\SmartObject;
 use Wavevision\DIServiceAnnotation\DIService;
+use Wavevision\Utils\Path;
 
 /**
  * @DIService(generateInject=true)
@@ -15,22 +16,27 @@ class MailPathManager
 
 	public function template(): string
 	{
-		return $this->templatesDirectory() . '/template.latte';
+		return Path::join($this->templatesDirectory(), 'template.latte');
 	}
 
 	public function button(): string
 	{
-		return $this->templatesDirectory() . '/partials/button.latte';
+		return $this->partialTemplate('button.latte');
+	}
+
+	public function attributes(): string
+	{
+		return $this->partialTemplate('attributes.latte');
 	}
 
 	public function msoStyle(): string
 	{
-		return $this->stylesDirectory() . '/mso.css';
+		return $this->styles('mso.css');
 	}
 
 	public function style(): string
 	{
-		return $this->stylesDirectory() . '/style.css';
+		return $this->styles('style.css');
 	}
 
 	private function templatesDirectory(): string
@@ -38,9 +44,14 @@ class MailPathManager
 		return __DIR__ . '/../../../../templates/basic';
 	}
 
-	private function stylesDirectory(): string
+	private function partialTemplate(string $name): string
 	{
-		return $this->templatesDirectory() . '/styles';
+		return Path::join($this->templatesDirectory(), 'partials', $name);
+	}
+
+	private function styles(string $name): string
+	{
+		return Path::join($this->templatesDirectory(), 'styles', $name);
 	}
 
 }

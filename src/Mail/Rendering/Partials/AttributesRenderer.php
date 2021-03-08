@@ -10,7 +10,7 @@ use Wavevision\Mail\Rendering\Services\InjectMailPathManager;
 /**
  * @DIService(generateInject=true)
  */
-class ButtonRenderer
+class AttributesRenderer
 {
 
 	use InjectMailPathManager;
@@ -18,11 +18,12 @@ class ButtonRenderer
 	use SmartObject;
 
 	/**
+	 * @param Attribute[] $attributes
 	 * @return Html<mixed>
 	 */
-	public function render(Button $button): Html
+	public function render(array $attributes): Html
 	{
-		return $this->partialRenderer->render($this->mailPathManager->button(), ['button' => $button]);
+		return $this->partialRenderer->render($this->mailPathManager->attributes(), ['attributes' => $attributes]);
 	}
 
 }

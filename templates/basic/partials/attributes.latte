@@ -1,0 +1,15 @@
+{varType Wavevision\Mail\Rendering\Partials\Attribute[] $attributes}
+<table class="attributes" width="100%" cellpadding="0" cellspacing="0" role="presentation">
+	<tr>
+		<td class="attributes_content">
+			<table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+				<tr n:foreach="$attributes as $attribute">
+					<td class="attributes_item">
+                                    <span class="f-fallback">
+              <strong>{$attribute->getLabel()}</strong> {$attribute->getValue()}</span>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>

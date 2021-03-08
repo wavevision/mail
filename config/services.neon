@@ -1,6 +1,10 @@
 # Generated file, do not modify directly!
 services:
+	- factory: Wavevision\Mail\Rendering\Partials\AttributesRenderer
+	  inject: true
 	- factory: Wavevision\Mail\Rendering\Partials\ButtonRenderer
+	  inject: true
+	- factory: Wavevision\Mail\Rendering\Partials\PartialRenderer
 	  inject: true
 	- factory: Wavevision\Mail\Rendering\Services\MailPathManager
 	  inject: true
