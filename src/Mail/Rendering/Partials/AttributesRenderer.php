@@ -18,7 +18,7 @@ class AttributesRenderer
 	use SmartObject;
 
 	/**
-	 * @param Attribute[] $attributes
+	 * @param Html<mixed>[] $attributes
 	 * @return Html<mixed>
 	 */
 	public function render(array $attributes): Html

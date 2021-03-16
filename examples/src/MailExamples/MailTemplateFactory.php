@@ -7,7 +7,6 @@ use Nette\Utils\Html;
 use Wavevision\DIServiceAnnotation\DIService;
 use Wavevision\Mail\Rendering\Header;
 use Wavevision\Mail\Rendering\MailTemplate;
-use Wavevision\Mail\Rendering\Partials\Attribute;
 use Wavevision\Mail\Rendering\Partials\Button;
 use Wavevision\Mail\Rendering\Partials\InjectAttributesRenderer;
 use Wavevision\Mail\Rendering\Partials\InjectButtonRenderer;
@@ -39,7 +38,14 @@ class MailTemplateFactory
 					)
 					->addHtml(
 						$this->attributesRenderer->render(
-							[new Attribute('hello:', 'there'), new Attribute('one:', 'two')]
+							[Html::el()->setHtml('<strong>one: </strong> two')]
+						)
+					)
+					->addHtml(
+						$this->attributesRenderer->render(
+							[
+								Html::el()->setText('Lorem ipsum dolor sit amet, consectetur adipiscing elit'),
+							]
 						)
 					)
 					->addHtml($this->buttonRenderer->render(new Button('Click me', '#')))
