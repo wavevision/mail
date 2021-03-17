@@ -8,7 +8,7 @@ based on [wildbit / postmark-templates](https://github.com/wildbit/postmark-temp
 Install via composer
 
 ```
-composer require wavevision/mails
+composer require wavevision/mail
 ```
 
 and register DI extension
@@ -20,4 +20,4 @@ extensions:
 
 ## Usage
 
-See [examples](examples/MailExamples/MailTemplateFactory.php)
+See [examples](examples/src/MailExamples/MailTemplateFactory.php)
