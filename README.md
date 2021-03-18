@@ -1,7 +1,7 @@
 <p align="center"><a href="https://github.com/wavevision"><img alt="Wavevision s.r.o." src="https://wavevision.com/images/wavevision-logo.png" width="120" /></a></p>
 <h1 align="center">Mail</h1>
 
-Customizable e-mail templates
+Customizable e-mail templates for [nette](https://github.com/nette)
 based on [wildbit / postmark-templates](https://github.com/wildbit/postmark-templates).
 
 ## Installation
