@@ -1,4 +1,5 @@
-# Wavevision Mail
+<p align="center"><a href="https://github.com/wavevision"><img alt="Wavevision s.r.o." src="https://wavevision.com/images/wavevision-logo.png" width="120" /></a></p>
+<h1 align="center">Mail</h1>
 
 Customizable e-mail templates
 based on [wildbit / postmark-templates](https://github.com/wildbit/postmark-templates).
