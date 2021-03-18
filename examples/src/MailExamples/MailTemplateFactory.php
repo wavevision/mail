@@ -10,6 +10,7 @@ use Wavevision\Mail\Rendering\MailTemplate;
 use Wavevision\Mail\Rendering\Partials\Button;
 use Wavevision\Mail\Rendering\Partials\InjectAttributesRenderer;
 use Wavevision\Mail\Rendering\Partials\InjectButtonRenderer;
+use function sprintf;
 
 /**
  * @DIService(generateInject=true)
@@ -17,15 +18,28 @@ use Wavevision\Mail\Rendering\Partials\InjectButtonRenderer;
 class MailTemplateFactory
 {
 
-	use SmartObject;
-	use InjectButtonRenderer;
 	use InjectAttributesRenderer;
+	use InjectButtonRenderer;
+	use SmartObject;
+
+	private const LOGO_WIDTH = 120;
 
 	public function create(): MailTemplate
 	{
 		return (new MailTemplate())
-			->setHeader(new Header(Html::el('img')->addAttributes(['width' => 105])->src('logo.png'), '#'))
-			->setCustomStyle(/*'.email-body_inner{ background-color: red; }'*/ '')
+			->setHeader(
+				new Header(
+					Html::el('img')->addAttributes(
+						[
+							'src' => 'logo.png',
+							'style' => sprintf('width:%dpx', self::LOGO_WIDTH),
+							'width' => self::LOGO_WIDTH,
+						]
+					),
+					'#'
+				)
+			)
+			->setCustomStyle('.button{ background-color: red; border-color: red;}')
 			->setBody(
 				Html::el()
 					->addHtml(Html::el('h1')->setText('Hello there,'))

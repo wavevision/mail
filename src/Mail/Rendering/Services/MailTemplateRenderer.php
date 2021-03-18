@@ -4,7 +4,7 @@ namespace Wavevision\Mail\Rendering\Services;
 
 use Nette\SmartObject;
 use Nette\Utils\FileSystem;
-use Nette\Utils\Html;
+use TijsVerkoyen\CssToInlineStyles\CssToInlineStyles;
 use Wavevision\DIServiceAnnotation\DIService;
 use Wavevision\Mail\Rendering\MailTemplate;
 
@@ -20,46 +20,16 @@ class MailTemplateRenderer
 
 	public function renderToString(MailTemplate $template): string
 	{
-		$customStyle = $template->getCustomStyle();
-		return $this->templateRenderer->renderToString(
+		$renderedTemplate = $this->templateRenderer->renderToString(
 			$this->mailPathManager->template(),
 			[
 				'mail' => $template,
-				'style' => $this->attributes($this->styleFromFile($this->mailPathManager->style())),
-				'msoStyle' => $this->styleFromFile($this->mailPathManager->msoStyle()),
-				'customStyle' => $customStyle ? $this->attributes($this->style($customStyle)) : null,
 			]
 		);
-	}
-
-	/**
-	 * @return Html<mixed>
-	 */
-	private function styleFromFile(string $filePath): Html
-	{
-		return $this->style(FileSystem::read($filePath));
-	}
-
-	/**
-	 * @return Html<mixed>
-	 */
-	private function style(string $content): Html
-	{
-		return Html::el('style')->setAttribute('type', 'text/css')
-			->addHtml($content);
-	}
-
-	/**
-	 * @param Html<mixed> $style
-	 * @return Html<mixed>
-	 */
-	private function attributes(Html $style): Html
-	{
-		return $style->addAttributes(
-			[
-				'rel' => 'stylesheet',
-				'media' => 'all',
-			]
+		$cssToInlineStyles = new CssToInlineStyles();
+		return $cssToInlineStyles->convert(
+			$renderedTemplate,
+			FileSystem::read($this->mailPathManager->style()) . (string)$template->getCustomStyle()
 		);
 	}
 
